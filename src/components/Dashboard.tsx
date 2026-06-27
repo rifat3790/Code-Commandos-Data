@@ -188,7 +188,7 @@ export default function Dashboard({ csvData }: { csvData: string }) {
       complete: (results) => {
         let extractedColumns: string[] = [];
         if (results.data.length > 0) {
-           extractedColumns = Object.keys(results.data[0]).filter(k => k && k.trim() !== '' && !k.startsWith('_'));
+           extractedColumns = Object.keys(results.data[0] as Record<string, unknown>).filter(k => k && k.trim() !== '' && !k.startsWith('_'));
            setAllColumns(extractedColumns);
         }
 
